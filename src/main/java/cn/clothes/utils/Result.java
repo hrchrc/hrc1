@@ -21,7 +21,8 @@ public class Result implements Serializable{
     private Object data;
 
     public static Result build(Integer state, String msg, Object data) {
-        return new Result(state, msg, data);
+    	//静态result的方法build带参数(整数 状态,字符串 消息,对象 数据)
+        return new Result(state, msg, data);//返回新结果的状态,消息,数据
     }
 
     public static Result ok(Object data) {

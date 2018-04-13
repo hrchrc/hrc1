@@ -14,7 +14,7 @@ import cn.clothes.biz.FormJson;
 import cn.clothes.domain.FinancialManagementAccountPayable;
 import cn.clothes.service.FinancialManagementAccountPayableService;
 import cn.clothes.utils.Result;
-
+/**应收款，客户方面*/
 @Controller
 public class ProviderController {
 	@Autowired
