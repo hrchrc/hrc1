@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.data.domain.Page;
 @Entity
 @Table(name="financial_management_account_receivable")
 public class FinancialManagementAccountReceivable {
@@ -340,4 +342,5 @@ public class FinancialManagementAccountReceivable {
     public void setActualamount(Double actualamount) {
         this.actualamount = actualamount;
     }
+
 }

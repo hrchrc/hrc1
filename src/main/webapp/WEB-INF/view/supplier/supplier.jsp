@@ -26,7 +26,7 @@ layui.use('table', function(){
   table.render({
     elem: '#demo'
     ,height: 445
-    ,url: '/providerShow'
+    ,url: '/supplierShow'
     ,id: 'testReload'
     ,page: true //开启分页
     ,cols: [[ //表头
@@ -71,7 +71,7 @@ layui.use('table', function(){
           ,end: function(){  
               // 如果是通过单击关闭按钮关闭弹出层，父画面没有此表单  
               if($("#popupForm").length === 1){  
-                  $.post("${pageContext.request.contextPath }/addProvider",$("#popupForm").serialize(),function(data){
+                  $.post("${pageContext.request.contextPath }/addsupplier",$("#popupForm").serialize(),function(data){
                   	if(data.state==200){
                 	  layer.msg("添加成功!", {icon: 6});
                   	table.reload('testReload');
@@ -111,7 +111,7 @@ laypage.render({
         layer.confirm('真的删除行么', function(index){
             console.log(data);
             $.ajax({
-                url: "/providerDel",
+                url: "/supplierDel",
                 type: "POST",
                 data:{"id":data.id},
                 dataType: "json",
@@ -136,11 +136,11 @@ laypage.render({
 	            ,maxmin: true
 	            ,title: '修改 ID 为'+data.id+'的供应商'
 	            ,area: ['480px', '525px'] //宽高
-	            ,content: '/showProviderEdit?id='+data.id
+	            ,content: '/showSupplierEdit?id='+data.id
 	            ,end: function(){  
 	                // 如果是通过单击关闭按钮关闭弹出层，父画面没有此表单  
 	                if($("#popupForm").length === 1){  
-	                    $.post("${pageContext.request.contextPath }/editProvider",$("#popupForm").serialize(),function(){
+	                    $.post("${pageContext.request.contextPath }/editSupplier",$("#popupForm").serialize(),function(){
 	                    	layer.msg("修改成功!", {icon: 6});
 	                    	table.reload('testReload');
 	                    });  

@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.clothes.service.FinancialManagementAccountReceivableService;
 import cn.clothes.biz.FormJson;
-import cn.clothes.domain.FinancialManagementAccountPayable;
-import cn.clothes.service.FinancialManagementAccountPayableService;
+import cn.clothes.domain.FinancialManagementAccountReceivable;
+
 import cn.clothes.utils.Result;
 /**应付款，供应商方面*/
 @Controller
 public class SupplierController {
 	@Autowired
-	private FinancialManagementAccountPayableService financialManagementAccountPayableService;
-	@RequestMapping("/providerList")
-	public String providerList() {
-		return "provider/provider";//返回到下面的“SSJxin/src/main/webapp/WEB-INF/view/provider/provider.jsp”
+	private FinancialManagementAccountReceivableService financialManagementAccountReceivableService;
+	@RequestMapping("/supplierList")
+	public String supplierList() {
+		return "supplier/supplier";//返回到下面的“SSJxin/src/main/webapp/WEB-INF/view/supplier/supplier.jsp”
 	}
 	/**
 	 * 
@@ -32,38 +33,39 @@ public class SupplierController {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping("/providerShow")
+	@RequestMapping("/supplierShow")
 	@ResponseBody
-	public FormJson providerShow(Integer page,Integer limit,String keyword) {
-		Page<FinancialManagementAccountPayable> list;
+	public FormJson supplierShow(Integer page,Integer limit,String keyword) {
+		Page<FinancialManagementAccountReceivable> list;
 		if(keyword==""||keyword==null) {
-			 list=financialManagementAccountPayableService.findAll(page-1, limit);
+			 list=financialManagementAccountReceivableService.findAll(page-1, limit);
 		}else {
-			 list=financialManagementAccountPayableService.findByOrderid(keyword, page-1, limit);
+			 list=financialManagementAccountReceivableService.findByOrderid(keyword, page-1, limit);
 		}
-		FormJson<FinancialManagementAccountPayable> formJson=new FormJson<FinancialManagementAccountPayable>();
-		Integer count=financialManagementAccountPayableService.getTotalCount();
+		FormJson<FinancialManagementAccountReceivable> formJson=new FormJson<FinancialManagementAccountReceivable>();
+		Integer count=financialManagementAccountReceivableService.getTotalCount();
 		formJson.setCount(count);
 		formJson.setData(list.getContent());
 		formJson.setCode(0);
 		return formJson;
 	}
-	@RequestMapping("/providerDel")
+	@RequestMapping("/supplierDel")
 	@ResponseBody
-	public Result providerDel(Long id) {
-		Result result = financialManagementAccountPayableService.deleteById(id);
+	public Result supplierDel(Long id) {
+		Result result = financialManagementAccountReceivableService.deleteById(id);
 		return result;
 	}
-	@RequestMapping("/showProviderEdit")
-	public String showProviderEdit(Model model,Long id) {
-		FinancialManagementAccountPayable fmap = financialManagementAccountPayableService.findById(id);
+	@RequestMapping("/showSupplier")
+	public String showSupplierEdit(Model model,Long id) {
+		FinancialManagementAccountReceivable fmap = financialManagementAccountReceivableService.findById(id);
 		model.addAttribute("fmap", fmap);
-		return "/provider/providerEdit";
+		return "/supplier/supplierEdit";
 	}
-	@RequestMapping(value="/editProvider",method=RequestMethod.POST)
+	@RequestMapping(value="/editSupplier",method=RequestMethod.POST)
 	@ResponseBody
-	public void editProvider(FinancialManagementAccountPayable financialManagementAccountPayable) {
-		financialManagementAccountPayableService.updateFinancialManagementAccountPayable(financialManagementAccountPayable);
+	public void editSupplier(FinancialManagementAccountReceivable financialManagementAccountReceivable) {
+		/**/
+		financialManagementAccountReceivableService.updateFinancialManagementAccountReceivable(financialManagementAccountReceivable);
 	}
 	/**
 	 * 	展示添加商品
@@ -71,15 +73,16 @@ public class SupplierController {
 	 */
 	@RequestMapping("/showAdd")
 	public String showAdd() {
-		return "/provider/providerEdit";
+		return "/supplier/supplierEdit";
 	}
 	/**
 	 * 增加商品
-	 * @param financialManagementAccountPayable
+	 * @param financialManagementAccountReceivable
 	 */
-	@RequestMapping(value="/addProvider",method=RequestMethod.POST)
+	@RequestMapping(value="/addSupplier",method=RequestMethod.POST)
 	@ResponseBody
-	public Result addProvider(FinancialManagementAccountPayable financialManagementAccountPayable) {
-		return financialManagementAccountPayableService.addFinancialManagementAccountPayable(financialManagementAccountPayable);
+	public Result addSupplier(FinancialManagementAccountReceivable financialManagementAccountReceivable) {
+		/**/
+		return financialManagementAccountReceivableService.addFinancialManagementAccountReceivable(financialManagementAccountReceivable);
 	}
 }

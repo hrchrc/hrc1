@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+/**客户数据库实体类*/
 @Entity
 @Table(name="financial_management_account_payable")
 public class FinancialManagementAccountPayable {

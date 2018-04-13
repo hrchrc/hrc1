@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 
 import cn.clothes.domain.FinancialManagementAccountPayable;
 import cn.clothes.utils.Result;
-
+/**客户服务接口类*/
 public interface FinancialManagementAccountPayableService {
 	Result addFinancialManagementAccountPayable(FinancialManagementAccountPayable financialManagementAccountPayable);
 	Integer getTotalCount();
