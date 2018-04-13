@@ -23,6 +23,7 @@ import cn.clothes.utils.Result;
 
 @Service
 @Transactional
+/**实现客户服务接口类*/
 public class FinancialManagementAccountPayableServiceImpl implements FinancialManagementAccountPayableService{
 	@Autowired
 	private FinancialManagementAccountPayableDao financialManagementAccountPayableDao;

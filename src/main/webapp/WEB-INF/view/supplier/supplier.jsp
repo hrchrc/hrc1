@@ -21,6 +21,9 @@
     <a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
 </script>
  <script>
+/* function tishi(id) {
+	id.innerHTML="谢谢!";
+} */
 layui.use('table', function(){
   var table = layui.table;
   table.render({

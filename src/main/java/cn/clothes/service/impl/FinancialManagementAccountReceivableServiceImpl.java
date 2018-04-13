@@ -16,35 +16,35 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import cn.clothes.dao.FinancialManagementAccountPayableDao;
-import cn.clothes.domain.FinancialManagementAccountPayable;
-import cn.clothes.service.FinancialManagementAccountPayableService;
+import cn.clothes.dao.FinancialManagementAccountReceivableDao;
+import cn.clothes.domain.FinancialManagementAccountReceivable;
+import cn.clothes.service.FinancialManagementAccountReceivableService;
 import cn.clothes.utils.Result;
 
 @Service
 @Transactional
-/**实现客户服务接口类*/
-public class FinancialManagementAccountReceivableServiceImpl implements FinancialManagementAccountPayableService{
+/**实现供应商服务接口类*/
+public class FinancialManagementAccountReceivableServiceImpl implements FinancialManagementAccountReceivableService{
 	@Autowired
-	private FinancialManagementAccountPayableDao financialManagementAccountPayableDao;
+	private FinancialManagementAccountReceivableDao financialManagementAccountReceivableDao;
 	@Override
 	public Integer getTotalCount() {
 		// TODO Auto-generated method stub
-		return (int) financialManagementAccountPayableDao.count();
+		return (int) financialManagementAccountReceivableDao.count();
 	}
 	@Override
-	public Page<FinancialManagementAccountPayable> findAll(Integer page,Integer limit) {
+	public Page<FinancialManagementAccountReceivable> findAll(Integer page,Integer limit) {
 		// TODO Auto-generated method stub
-		 return financialManagementAccountPayableDao.findAll(new PageRequest(page, limit));
+		 return financialManagementAccountReceivableDao.findAll(new PageRequest(page, limit));
 	}
 	@Override
-	public Page<FinancialManagementAccountPayable> findByOrderid(String keyword,Integer page,Integer limit) {
+	public Page<FinancialManagementAccountReceivable> findByOrderid(String keyword,Integer page,Integer limit) {
 		// TODO Auto-generated method stub
 		Pageable pageable=new PageRequest(page, limit);
-		Specification<FinancialManagementAccountPayable> spec =new Specification<FinancialManagementAccountPayable>() {
+		Specification<FinancialManagementAccountReceivable> spec =new Specification<FinancialManagementAccountReceivable>() {
 			
 			@Override
-			public Predicate toPredicate(Root<FinancialManagementAccountPayable> root, CriteriaQuery<?> query,
+			public Predicate toPredicate(Root<FinancialManagementAccountReceivable> root, CriteriaQuery<?> query,
 					CriteriaBuilder cb) {
 				// TODO Auto-generated method stub
 				Path<Integer> orderid = root.get("orderid");
@@ -52,34 +52,34 @@ public class FinancialManagementAccountReceivableServiceImpl implements Financia
 				return p;
 			}
 		};
-		return financialManagementAccountPayableDao.findAll(spec,pageable);
+		return financialManagementAccountReceivableDao.findAll(spec,pageable);
 	}
 	@Override
 	public Result deleteById(Long id) {
 		// TODO Auto-generated method stub
-		financialManagementAccountPayableDao.deleteById(id);
+		financialManagementAccountReceivableDao.deleteById(id);
 		return Result.ok();
 	}
 	@Override
-	public FinancialManagementAccountPayable findById(Long id) {
+	public FinancialManagementAccountReceivable findById(Long id) {
 		// TODO Auto-generated method stub
-		return financialManagementAccountPayableDao.findById(id).get();
+		return financialManagementAccountReceivableDao.findById(id).get();
 	}
 	@Override
-	public Result updateFinancialManagementAccountPayable(
-			FinancialManagementAccountPayable financialManagementAccountPayable) {
+	public Result updateFinancialManagementAccountReceivable(
+			FinancialManagementAccountReceivable FinancialManagementAccountReceivable) {
 		// TODO Auto-generated method stub
-		 financialManagementAccountPayableDao.saveAndFlush(financialManagementAccountPayable);
+		 financialManagementAccountReceivableDao.saveAndFlush(FinancialManagementAccountReceivable);
 		 return Result.ok();
 	}
 	@Override
-	public Result addFinancialManagementAccountPayable(FinancialManagementAccountPayable financialManagementAccountPayable) {
+	public Result addFinancialManagementAccountReceivable(FinancialManagementAccountReceivable FinancialManagementAccountReceivable) {
 		// TODO Auto-generated method stub
-		 financialManagementAccountPayableDao.save(financialManagementAccountPayable);
+		 financialManagementAccountReceivableDao.save(FinancialManagementAccountReceivable);
 		 return Result.ok();
 	}
 	@Override
-	public List<FinancialManagementAccountPayable> findByPage(Integer page, Integer limit) {
+	public List<FinancialManagementAccountReceivable> findByPage(Integer page, Integer limit) {
 		// TODO Auto-generated method stub
 		return null;
 	}

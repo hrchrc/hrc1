@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.data.domain.Page;
+/**供应商数据库实体类*/
 @Entity
 @Table(name="financial_management_account_receivable")
 public class FinancialManagementAccountReceivable {
@@ -18,7 +19,7 @@ public class FinancialManagementAccountReceivable {
      *
      * @mbg.generated Fri Mar 16 14:27:05 CST 2018
      */
-    private Integer id;
+    private Long id;
 
     /**
      *
@@ -111,7 +112,7 @@ public class FinancialManagementAccountReceivable {
      */
     @Id
 	@GeneratedValue
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -123,7 +124,7 @@ public class FinancialManagementAccountReceivable {
      *
      * @mbg.generated Fri Mar 16 14:27:05 CST 2018
      */
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
