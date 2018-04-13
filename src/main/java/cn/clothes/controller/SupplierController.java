@@ -16,7 +16,7 @@ import cn.clothes.service.FinancialManagementAccountPayableService;
 import cn.clothes.utils.Result;
 /**应付款，供应商方面*/
 @Controller
-public class ReceivableController {
+public class SupplierController {
 	@Autowired
 	private FinancialManagementAccountPayableService financialManagementAccountPayableService;
 	@RequestMapping("/providerList")

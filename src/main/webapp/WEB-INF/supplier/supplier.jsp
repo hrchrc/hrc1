@@ -34,7 +34,7 @@ layui.use('table', function(){
       ,{field: 'orderid', title: '订单ID', width:80, sort: true}
       ,{field: 'orderdate', title: '订单日期', width:110, sort: true} 
       ,{field: 'billtype', title: '账单类型', width:100}
-      ,{field: 'client', title: '客户', width: 80}
+      ,{field: 'client', title: '供应商', width: 80}
       ,{field: 'shipmenttrackingnumber', title: '货物跟踪号码', width: 120, sort: true}
       ,{field: 'receivableamount', title: '收款价格', width: 120, sort: true}
       ,{field: 'discountamount', title: '折扣价格', width: 115, sort: true}
@@ -65,7 +65,7 @@ layui.use('table', function(){
           ,shadeClose: true
           ,shade: false
           ,maxmin: true
-          ,title: '添加客户'
+          ,title: '添加供应商'
           ,area: ['480px', '525px'] //宽高
           ,content: '/showAdd'
           ,end: function(){  
