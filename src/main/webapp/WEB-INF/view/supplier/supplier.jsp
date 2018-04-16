@@ -70,7 +70,7 @@ layui.use('table', function(){
           ,maxmin: true
           ,title: '添加供应商'
           ,area: ['480px', '525px'] //宽高
-          ,content: '/showAdd'
+          ,content: '/showAdd2'
           ,end: function(){  
               // 如果是通过单击关闭按钮关闭弹出层，父画面没有此表单  
               if($("#popupForm").length === 1){  

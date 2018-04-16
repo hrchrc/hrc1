@@ -71,8 +71,8 @@ public class SupplierController {
 	 * 	展示添加商品
 	 * @return
 	 */
-	@RequestMapping("/showAdd")
-	public String showAdd() {
+	@RequestMapping("/showAdd2")
+	public String showAdd2() {
 		return "/supplier/supplierEdit";
 	}
 	/**
